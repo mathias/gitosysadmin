@@ -1,0 +1,51 @@
+!!!
+!!!
+%html
+  %head
+    %title Gitosysadmin
+    %link{:rel => 'stylesheet', :href => 'styles/reset.css', :type=> "text/css"}
+    %link{:rel => 'stylesheet', :href => "styles/base.css", :type => "text/css"}
+    %link{:rel => 'stylesheet', :href => "styles/style.css", :type => "text/css"}
+  %body
+    %div#container
+      %div#header
+        %h1 
+          %a{:href => '/'} Gitosysadmin
+        %div#main-navigation
+          %ul.wat-cf
+            %li.first.active 
+              %a{:href => '#'} Main
+            %li 
+              %a{:href => '/groups'} Groups
+            %li
+              %a{:href => '/repos'} Repos
+            %li 
+              %a{:href => '/users'} Users
+            %li 
+              %a{:href => '/config'} Config
+            %li 
+              %a{:href => '/checkout'} Checkout
+            %li 
+              %a{:href => '/push'} Push
+            %li
+              %a{:href => '/logout'} Logout
+      %div#wrapper.wat-cf
+        %div#main  
+          %div#block-text.block
+            %div.content
+              = yield
+          %div#footer
+            %div.block 
+              %p 
+                Written by Matt Gauger. Source available at 
+                %a{:href => 'http://github.com/mathias/gitosysadmin'} Github.
+        %div#sidebar
+          %div.block
+            %h3 Gitosis Stats
+            %ul.navigation
+              %li
+                %a{:href => "/groups"} 4 groups
+              %li 
+                %a{:href => "/repos"} 5 repos
+              %li 
+                %a{:href => "/users"} 12 users

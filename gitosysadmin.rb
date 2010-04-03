@@ -31,7 +31,7 @@ get '/' do
 end
 
 get '/login' do
-  haml :login
+  haml :login, {:layout => :login}
 end
 
 post '/login' do

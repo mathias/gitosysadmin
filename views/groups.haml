@@ -1,111 +1,61 @@
-!!!
-!!!
-%html
-  %head
-    %title Gitosysadmin - Groups
-    %link{:rel => 'stylesheet', :href => 'styles/reset.css', :type=> "text/css"}
-    %link{:rel => 'stylesheet', :href => "styles/base.css", :type => "text/css"}
-    %link{:rel => 'stylesheet', :href => "styles/style.css", :type => "text/css"}
-  %body
-    %div#container
-      %div#header
-        %h1 
-          %a{:href => '/'} Gitosysadmin
-        %div#main-navigation
-          %ul.wat-cf
-            %li.first 
-              %a{:href => '/'} Main
-            %li.active
-              %a{:href => '/groups'} Groups
-            %li
-              %a{:href => '/repos'} Repos
-            %li 
-              %a{:href => '/users'} Users
-            %li 
-              %a{:href => '/config'} Config
-            %li 
-              %a{:href => '/checkout'} Checkout
-            %li 
-              %a{:href => '/push'} Push
-            %li
-              %a{:href => '/logout'} Logout
-      %div#wrapper.wat-cf
-        %div#main  
-          %div#block-tables.block
-            %div.content
-              %h2 Groups
-              %div.content
-                %div.flash
-                  %div.message.error 
-                    %p Error message
-                  %div.message.warning 
-                    %p Warning message
-                  %div.message.notice 
-                    %p Notice message
-              %div#inner
-                %table.table
-                  %tbody
-                    %tr
-                      %th.first
-                      %th Group Name
-                      %th Repo
-                      %th.modify Show
-                      %th.modify Edit
-                      %th.modify.last Delete
-                    %tr.odd
-                      %td 
-                        %input{:type => "checkbox", :name => "id", :value => "1"}
-                      %td gitosis-admin
-                      %td 
-                        %a{:href => "/repos/gitosis-admin"} gitosis-admin
-                      %td
-                        show
-                      %td
-                        edit
-                      %td
-                        %a{"/groups/delete/gitosis-admin"}
-                          %img{:src => "images/icons/cross.png", :alt => "Delete"}
-                          delete
-                    %tr.even
-                      %td 
-                        %input{:type => "checkbox", :name => "id", :value => "1"} 
-                      %td bucketb
-                      %td 
-                        %a{:href => '/repos/devstu'} devstu
-                      %td edit
-                      %td show
-                      %td
-                        %a{:href => "/groups/delete/gitosis-admin"}
-                          %img{:src => "images/icons/cross.png", :alt => "Delete"}
-                          delete
-                    %tr.odd
-                      %td 
-                        %input{:type => "checkbox", :name => "id", :value => "1"} 
-                      %td mathiasx
-                      %td 
-                        %a{:href => "repos/gitosysadmin" } gitosysadmin
-                      %td show
-                      %td edit
-                      %td 
-                        %a{:href => "/groups/delete/gitosis-admin"}
-                        %img{:src => "images/icons/cross.png", :alt => "Delete"}
-                        delete
-              %div.actions
-                %span.addbutton
-                  %a{:href => "/groups/add"}
-                    Add a group
-          %div#footer
-            %div.block 
-              %p 
-                Written by Matt Gauger. Source available at 
-                %a{:href => 'http://github.com/mathias/gitosysadmin'} Github.
-        %div#sidebar
-          %div.block
-            %h3 Gitosis Stats
-            %ul.navigation
-              %li
-                %a{:href => "/groups"} 4 groups
-              %li
-                %a{:href => "/repos"} 5 repos
-              %li
-                %a{:href => "/users"} 12 users
+%h2 Groups
+%div.content
+  %div.flash
+    %div.message.error 
+      %p Error message
+    %div.message.warning 
+      %p Warning message
+    %div.message.notice 
+      %p Notice message
+%div#inner
+  %table.table
+    %tbody
+      %tr
+        %th.first
+        %th Group Name
+        %th Repo
+        %th.modify Show
+        %th.modify Edit
+        %th.modify.last Delete
+      %tr.odd
+        %td 
+          %input{:type => "checkbox", :name => "id", :value => "1"}
+        %td gitosis-admin
+        %td 
+          %a{:href => "/repos/gitosis-admin"} gitosis-admin
+        %td
+          show
+        %td
+          edit
+        %td
+          %a{"/groups/delete/gitosis-admin"}
+            %img{:src => "images/icons/cross.png", :alt => "Delete"}
+            delete
+      %tr.even
+        %td 
+          %input{:type => "checkbox", :name => "id", :value => "1"} 
+        %td bucketb
+        %td 
+          %a{:href => '/repos/devstu'} devstu
+        %td edit
+        %td show
+        %td
+          %a{:href => "/groups/delete/gitosis-admin"}
+            %img{:src => "images/icons/cross.png", :alt => "Delete"}
+            delete
+      %tr.odd
+        %td 
+          %input{:type => "checkbox", :name => "id", :value => "1"} 
+        %td mathiasx
+        %td 
+          %a{:href => "repos/gitosysadmin" } gitosysadmin
+        %td show
+        %td edit
+        %td 
+          %a{:href => "/groups/delete/gitosis-admin"}
+          %img{:src => "images/icons/cross.png", :alt => "Delete"}
+          delete
+%div.actions
+  %span.addbutton
+    %a{:href => "/groups/add"}
+      Add a group
