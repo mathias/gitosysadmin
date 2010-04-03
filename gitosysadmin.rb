@@ -10,6 +10,8 @@ require 'config/database'
 configure do
   VERSION = "0.01"
   set :sessions, true
+  set :haml, {:format => :html5 } # default Haml format is :xhtml
+  
   
   # Set these to secure your site:
   USER = "admin"
@@ -21,8 +23,7 @@ end
 
 get '/' do
   @u = session[:user]
-  #haml :index
-  REPO
+  haml :index
 end
 
 get '/login' do
@@ -56,4 +57,9 @@ end
 
 post '/checkout' do
   
+end
+
+get '/groups' do
+  @u = session[:user]
+  haml :groups
 end
