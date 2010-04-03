@@ -22,8 +22,12 @@ configure do
 end
 
 get '/' do
-  @u = session[:user]
-  haml :index
+  if session[:user]
+    @u = session[:user]
+    haml :index
+  else
+    redirect '/login'
+  end
 end
 
 get '/login' do
@@ -51,8 +55,12 @@ get '/about' do
 end
 
 get '/checkout' do
-  @u = session[:user]
-  haml :checkout
+  if session[:user]
+    @u = session[:user]
+    haml :checkout
+  else
+    redirect '/login'
+  end
 end
 
 post '/checkout' do
@@ -60,6 +68,10 @@ post '/checkout' do
 end
 
 get '/groups' do
-  @u = session[:user]
-  haml :groups
+  if session[:user]
+    @u = session[:user]
+    haml :groups
+  else
+    redirect '/login'
+  end
 end

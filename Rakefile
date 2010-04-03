@@ -13,7 +13,7 @@ namespace :db do
   desc "Add some test users"
   task :testusers do
     us = User.new
-    us.login = "test"
+    us.login = "admin"
     us.email = "asdf@asdf.de"
     us.password = "pw"
     us.save
