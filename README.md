@@ -7,6 +7,8 @@ Gitosysadmin
 
 * grit 
 * Sinatra
+* datamapper 
+* do_sqlite3
 
 ## Source ###################################################################
 
@@ -20,15 +22,12 @@ and cloned with:
 	
 ## Usage ####################################################################
 
-Currently, just clone the repo and run it from the top level of your checked-out gitosos-admin repo.
+The users database needs to be created first:
 
-	$ git clone git://github.com/mathias/gitosysadmin
-	$ cd gitosis-admin
-	$ ruby ../gitosysadmin/gitosysadmin.rb -p PORT
+  rake db:migrate
+  rake db:testusers
 
-Then navigate to `localhost:PORT` to start administrating gitosis. If you don't pass in a `-p PORT` then gitosysadmin defaults to `localhost:4567`. Default user/password are '`admin`'/'`gitosis`'. Please change these at the top of `gitosysadmin.rb`!
-
-Your shell user must also be able to write to the gitosis-admin repo. Use the web interface to push the gitosis-admin repo to the server.
+This creates a default `admin` user with password `pw`. More instructions to follow development.
 
 ## Credits ##################################################################
 
