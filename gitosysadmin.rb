@@ -3,7 +3,7 @@
 $LOAD_PATH.unshift File.dirname(__FILE__) + '/sinatra/lib'
 require 'rubygems'
 require 'sinatra'
-require 'grit'
+require 'git'
 require 'helpers/sinatra'
 require 'config/database'
 
@@ -11,23 +11,17 @@ configure do
   VERSION = "0.01"
   set :sessions, true
   set :haml, {:format => :html5 } # default Haml format is :xhtml
-  
-  
-  # Set these to secure your site:
-  USER = "admin"
-  PASSWORD = "gitosis"
-  
-  # Where gitosis-admin repo is checked out:
-  REPO = File.dirname(__FILE__) + '/gitosis-admin'
+end
+
+before do
+  if !logged_in? && ( request.path_info != '/login' )
+    redirect '/login'
+  end
 end
 
 get '/' do
-  if session[:user]
     @u = session[:user]
     haml :index
-  else
-    redirect '/login'
-  end
 end
 
 get '/login' do
@@ -55,12 +49,8 @@ get '/about' do
 end
 
 get '/checkout' do
-  if session[:user]
-    @u = session[:user]
-    haml :checkout
-  else
-    redirect '/login'
-  end
+  @u = session[:user]
+  haml :checkout
 end
 
 post '/checkout' do
@@ -68,10 +58,20 @@ post '/checkout' do
 end
 
 get '/groups' do
-  if session[:user]
-    @u = session[:user]
-    haml :groups
-  else
-    redirect '/login'
-  end
+  @u = session[:user]
+  haml :groups
+end
+
+get '/groups/delete/:name' do
+  group = params[:name]
+  "Stubbed"
+end
+
+
+get '/repos' do
+  "Stubbed"
+end
+
+get '/users' do
+  "Stubbed"
 end
