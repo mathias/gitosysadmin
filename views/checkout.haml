@@ -1,0 +1,15 @@
+%h2.title Checkout from Server
+%div.inner
+  %form.form{:action => "/checkout",:method => "post"}
+    %div.group
+      %label.label Path
+      %div 
+        %input.path_text{:type => "text", :value => "git@YOUR_SERVER:gitosis-admin.git"}
+      %span.description Example: git@localhost:gitosis-admin.git
+    %div.group.navform.wat-cf
+      %button.button{:type => "submit"}
+        %img{:alt =>"Save", :src => "images/icons/tick.png"}
+        Checkout
+      %a.button{:href => "/checkout"}
+        %img{:alt =>"Cancel", :src => "images/icons/cross.png"}
+        Cancel

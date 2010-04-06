@@ -1,12 +1,8 @@
 %h2 Groups
 %div.content
   %div.flash
-    %div.message.error 
-      %p Error message
-    %div.message.warning 
-      %p Warning message
-    %div.message.notice 
-      %p Notice message
+    = show_flash
+    = show_error
 %div#inner
   %table.table
     %tbody

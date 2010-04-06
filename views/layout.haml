@@ -3,9 +3,9 @@
 %html
   %head
     %title Gitosysadmin
-    %link{:rel => 'stylesheet', :href => 'styles/reset.css', :type=> "text/css"}
-    %link{:rel => 'stylesheet', :href => "styles/base.css", :type => "text/css"}
-    %link{:rel => 'stylesheet', :href => "styles/style.css", :type => "text/css"}
+    %link{:rel => 'stylesheet', :href => '/styles/reset.css', :type=> "text/css"}
+    %link{:rel => 'stylesheet', :href => "/styles/base.css", :type => "text/css"}
+    %link{:rel => 'stylesheet', :href => "/styles/style.css", :type => "text/css"}
   %body
     %div#container
       %div#header
@@ -39,13 +39,4 @@
               %p 
                 Written by Matt Gauger. Source available at 
                 %a{:href => 'http://github.com/mathias/gitosysadmin'} Github.
-        %div#sidebar
-          %div.block
-            %h3 Gitosis Stats
-            %ul.navigation
-              %li
-                %a{:href => "/groups"} 4 groups
-              %li 
-                %a{:href => "/repos"} 5 repos
-              %li 
-                %a{:href => "/users"} 12 users
+        = haml :sidebar, {:layout => :sidebar}  

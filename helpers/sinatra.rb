@@ -25,9 +25,21 @@ helpers do
 
   def show_flash
     if session[:flash]
-      tmp = session[:flash]
+      @msg = session[:flash]
       session[:flash] = false
-      "<fieldset><legend>Notice</legend><p>#{tmp}</p></fieldset>"
+      haml :flash, {:layout => :flash}
+    end
+  end
+  
+  def error(msg)
+    session[:error] = msg
+  end
+  
+  def show_error
+    if session[:error]
+      @msg = session[:error]
+      session[:error] = false
+      haml :error, {:layout => :error}
     end
   end
 end

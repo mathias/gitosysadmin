@@ -288,6 +288,12 @@ hr {
   border: 1px solid #cfcfcf;
 }
 
+.form input.path_text {
+  font-size: 20px;
+  width: 580px;
+  border: 1px solid #cfcfcf;
+}
+
 .form input.button {
   background: #cfcfcf;
   -moz-border-radius: 5px;
@@ -400,4 +406,3 @@ ul.list li .item .avatar {
 .secondary-navigation {
   border-bottom-width: 5px;
 }
-

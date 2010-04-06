@@ -4,23 +4,24 @@ $LOAD_PATH.unshift File.dirname(__FILE__) + '/sinatra/lib'
 require 'rubygems'
 require 'sinatra'
 require 'git'
+require 'Haml'
 require 'helpers/sinatra'
 require 'config/database'
 
 configure do
-  VERSION = "0.01"
   set :sessions, true
   set :haml, {:format => :html5 } # default Haml format is :xhtml
 end
 
 before do
-  if !logged_in? && ( request.path_info != '/login' )
+  if !logged_in? && ( request.path_info != '/login' ) && File.extname(request.path_info) != '.css' && File.extname(request.path_info) != ".png"
     redirect '/login'
+  else
+    @u = session[:user]
   end
 end
 
 get '/' do
-    @u = session[:user]
     haml :index
 end
 
@@ -33,7 +34,7 @@ post '/login' do
     flash("Login successful")
     redirect '/'
   else
-    flash("Login failed - Try again")
+    error("Login failed - Try again")
     redirect '/login'
   end
 end
@@ -49,7 +50,6 @@ get '/about' do
 end
 
 get '/checkout' do
-  @u = session[:user]
   haml :checkout
 end
 
@@ -58,7 +58,6 @@ post '/checkout' do
 end
 
 get '/groups' do
-  @u = session[:user]
   haml :groups
 end
 

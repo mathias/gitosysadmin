@@ -2,7 +2,7 @@
 !!!
 %html
   %head
-    %title Gitosysadmin - Groups
+    %title Gitosysadmin - Login
     %link{:rel => 'stylesheet', :href => 'styles/reset.css', :type=> "text/css"}
     %link{:rel => 'stylesheet', :href => "styles/base.css", :type => "text/css"}
     %link{:rel => 'stylesheet', :href => "styles/style.css", :type => "text/css"}
@@ -13,9 +13,8 @@
         %div#block-login.block
           %h2 Login
           %div.content.login
-            %div.flash
-              %div.message.notice
-                %p Logged in successfully
+            = show_flash
+            = show_error
             %form.form.login{:action => "/login", :method => "post"}
               %div.group.wat-cf
                 %div.left
