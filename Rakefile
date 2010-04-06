@@ -17,11 +17,15 @@ namespace :db do
     us.email = "asdf@asdf.de"
     us.password = "pw"
     us.save
-
-    as = User.new
-    as.login = "foo"
-    as.email = "yes@asd.de"
-    as.password = "bar"
-    as.save
-  end    
+  end
+  
+  desc "Add a test repo to administrate"
+  task :testadminrepo do
+    adm = AdminRepo.new
+    adm.path = File.dirname(__FILE__) + "/gitosis-admin"
+    adm.user = "git"
+    adm.server = "localhost"
+    adm.changed = true
+    adm.pushed = false
+  end
 end

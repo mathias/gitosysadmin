@@ -6,12 +6,12 @@ require 'date'
 class User
   include DataMapper::Resource
   
-  property :id,			Serial, 	:serial => true
-  property :login,		String,  	:key => true, :length => (3..40), :required=>true
-  property :hashed_password, 	String
-  property :email,		String,		:format => :email_address
-  property :salt,		String
-  property :created_at,		DateTime,	:default => DateTime.now
+  property :id,     Serial,   :serial => true
+  property :login,  String,   :key => true, :length => (3..40), :required=>true
+  property :hashed_password,  String
+  property :email,  String,   :format => :email_address
+  property :salt,   String
+  property :created_at,   DateTime,   :default => DateTime.now
   
   validates_present :login, :email
 
