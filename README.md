@@ -18,7 +18,7 @@ The source is available at:
 
 and cloned with:
 
-	git clone git://github.com/mathias/gitosysadmin
+	git clone git://github.com/mathias/gitosysadmin.git
 	
 ## Usage ####################################################################
 
